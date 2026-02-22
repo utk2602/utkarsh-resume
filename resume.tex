@@ -1,0 +1,289 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=1 cm,
+    bottom=1 cm,
+    left=1.5 cm,
+    right=1.5 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Utkarsh's CV},
+    pdfauthor={Utkarsh},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    -1pt
+}{
+    0.3 cm
+}{
+    0.2 cm
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Utkarsh
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{Jamshedpur, Jharkhand}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{mailto:workutkarshkashyap@gmail.com}{workutkarshkashyap@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{tel:+91-9122454984}{9122454984}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{https://www.linkedin.com/in/utkarsh-kashyap-041931285/}{linkedin.com/in/Utkarsh}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{https://github.com/utk2602}{github.com/utkarsh}}\kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{https://utkarsh-dev.vercel.app/}{utkarsh.dev}}%
+    \end{header}
+
+    \vspace{5 pt - 0.3 cm}
+
+    \section{Education}
+
+        \begin{twocolentry}{
+            Sep 2023 - Jul 2027 
+        }
+            \textbf{Vellore Institute of Technology} , B.Tech in Electronics Engineering \end{twocolentry}
+            \vspace{0.05 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Co Secretary at IEEE-Computer Society VIT
+                % \item \textbf{Relevant Coursework:} Structured and Object-Oriented Programming, Data Structures and Algorithms, Computer Architecture and Organization, Operating Systems, Database Management Systems, Computer Networks 
+            \end{highlights}
+        \end{onecolentry}
+
+
+\section{Technical Skills}
+\textbf{Languages:} Java, JavaScript, TypeScript, Python, C \\
+\textbf{Frameworks:}Next.js, TailwindCSS, Three.js, Express.js \\
+\textbf{Tools:}Git, Docker, Postman, Firebase, Burp Suite , Vercel\\
+\textbf{Libraries:}React, Redux, Axios, Framer Motion, React Hook Form, Zustand, Socket.io, Chart.js \\
+\textbf{Databases:}  MySQL, MongoDB, PostgreSQL , Neon Postgres ,Redis , Firebase Firestore\\
+
+    \section{Experience}
+
+        \begin{twocolentry}{
+            Aug 2025 \textendash Present 
+        }
+            \textbf{Software Developer Intern}, \href{https://xlancr.com/}{Xlancr} \textendash remote \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item  Engineered high-coverage Jest suites with DI-mocked Prisma layers, isolated service logic, and integration tests.
+                \item Built a real-time chat and negotiation system using WebSockets and Redis with transactional state consistency
+                \item Architected backend modules and relational schemas using domain-driven service–repository patterns, improving code maintainability and onboarding speed.
+                
+                
+            \end{highlights}
+        \end{onecolentry}
+                \vspace{0.12 cm}
+
+        \begin{twocolentry}{
+            May 2025 \textendash July 2025 
+        }
+            \textbf{Summer Intern}, Tata group \textendash   Jamshedpur, Jharkhand\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed a scalable auth platform for 1000+ users using NestJS, Next.js, JWT flows, and modular RBAC guards.
+                \item Automated operational workflows with cron-driven pipelines, transactional mailers, and submission channels.
+                \item Increased data retrieval speed by 40\% by switching from raw SQL to Prisma ORM.
+            \end{highlights}
+        \end{onecolentry}
+
+\section{Projects}
+        
+\begin{twocolentry}{
+    \href{https://rabbit-stack.vercel.app/}{live} \AND 
+    \href{https://github.com/utk2602/rabbit-stack}{Repo}
+}
+    \textbf{Rabbit Stack}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Built a code reviewer that can post inline as well as comment reviews for any PR made to the connected repository.
+        \item Architected the RAG-powered review flow that indexes repo files via Pinecone, embeds PR metadata with OpenAI , and enriches Gemini reviews  with the retrieved context before posting inline comments and review summaries.
+        \item \textbf{Technologies:} Next.js , Better Auth/GitHub OAuth, Pinecone vector DB, and PostgreSQL (Neon) via Prisma.
+    \end{highlights}
+\end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+\begin{twocolentry}{
+            \href{https://circuitsim.acmvit.in/}{live}|\href{https://github.com/utk2602/Digital-Circuit-Simulator}{Repo}
+        }
+            \textbf{Digital Circuit Simulator }\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built a full-stack digital logic simulator in Next.js/TypeScript using React Flow to model circuits as a directed node-edge graph with real-time boolean signal propagation and Prisma-backed circuit persistence.
+                \item Resolved infinite re-render loop in circuit simulation engine by refactoring simulateCircuit; implemented stable-state convergence logic inspired by Kasuraja's algorithm to correctly resolve feedback loops and cyclic gate connections.
+                
+                \item \textbf{Technologies:} Next.js 16, Clerk, React-Flow, Prisma ORM
+            \end{highlights}
+        \end{onecolentry}
+    
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            \href{https://github.com/utk2602/No-Reaction}{Github Link}
+        }
+            \textbf{No Reaction}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Implemented a bespoke DOM serialization pipeline via createDom that maps VDomNodes to real DOM elements with full attribute, class, and event binding on initial mount.
+                \item Built dependency-diffing and cleanup handling directly into useEffect internals, ensuring effects re-run only on actual dependency changes and prior effects are properly torn down — mirroring React's lifecycle without React.
+                
+                \item \textbf{Technologies:} Typescript, HTML
+           \end{highlights}
+        \end{onecolentry}
+
+\section{Achievements}
+
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Won 1st place at \textbf{B3 by Vinnovate IT} developing \href{https://github.com/utk2602/B3-Decentapp}{DecentApp},a decentralized privacy-first on chain communication protocol using \textbf{Solana}.
+            \item Earned 2nd place at \textbf{Futureprenuers Hackathon} by transforming research insights and user pain points into a validated, product-ready solution.
+            \item As \textbf{Co Secretary of IEEE Computer Society} , Lead and mentor a team of 7 developers in delivering  technical
+projects, while organizing 4 hackathons and 10+ workshops to enhance members'
+skills.
+            
+        \end{highlights}
+    \end{onecolentry}
+
+\end{document}
